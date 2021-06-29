@@ -3,7 +3,7 @@
 # Prechallenge: Support Tickets
 
 |Author|Points|Category|Solves|
-|---|---|---|
+|---|---|---|---|
 |Astro|999|Prechallenges|999|
 
 ### Description

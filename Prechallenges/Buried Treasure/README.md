@@ -3,7 +3,7 @@
 # INPUT_TITLE_HERE
 
 |Author|Points|Category|Solves|
-|---|---|---|
+|---|---|---|---|
 |AUTHOR|999|CATEGORY|999|
 
 ### Description

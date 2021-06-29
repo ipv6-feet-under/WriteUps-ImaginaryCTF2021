@@ -3,7 +3,7 @@
 # Prechallenge: Downloads
 
 |Author|Points|Category|Solves|
-|---|---|---|
+|---|---|---|---|
 |Eth007|999|Prechallenges|999|
 
 ### Description
