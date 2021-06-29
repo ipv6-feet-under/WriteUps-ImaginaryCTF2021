@@ -1,2 +1,12 @@
-# WriteUps-ImaginaryCTF2021
-ImaginaryCTF 2021 is an all new CTF competition, with all skill levels welcome to participate. It runs from July 23 to July 27, starting and ending at 4 PM UTC. In the competition, teams of up to six players will be challenged to hack websites and servers, crack codes, and recover information through challenges in cryptography, binary exploitation, web exploitation, forensics, reversing, and more. We hope you will have fun and learn something new!
+![ImaginaryCTF](banner.png)
+
+Thanks to [\[sqrt (-1) + 1\]](https://ctftime.org/team/131529) for hosting [ImaginaryCTF 2021](https://2021.imaginaryctf.org/)
+
+|Name|Weight|Category|
+|---|---|---|
+|[Flags](https://github.com/ipv6-feet-under/WriteUps-S.H.E.L.L.CTF21/tree/main/Prechallenges/Cyber%20Attack%201)| 999| Prechallenges|
+|[Discord](https://github.com/ipv6-feet-under/WriteUps-S.H.E.L.L.CTF21/tree/main/Prechallenges/Cyber%20Attack%202)| 999| Prechallenges|
+|[Downloads](https://github.com/ipv6-feet-under/WriteUps-S.H.E.L.L.CTF21/tree/main/Prechallenges/Cyber%20Attack%203)| 999| Prechallenges|
+|[Support Tickets](https://github.com/ipv6-feet-under/WriteUps-S.H.E.L.L.CTF21/tree/main/Prechallenges/Cyber%20Attack%204)| 999| Prechallenges|
+|[XOR](https://github.com/ipv6-feet-under/WriteUps-S.H.E.L.L.CTF21/tree/main/Prechallenges/Cyber%20Attack%204)| 999| Prechallenges|
+|[Buried Treasure](https://github.com/ipv6-feet-under/WriteUps-S.H.E.L.L.CTF21/tree/main/Prechallenges/Cyber%20Attack%204)| 999| Prechallenges|
