@@ -2,9 +2,9 @@
 
 # INPUT_TITLE_HERE
 
-|Author|Points|Category|
+|Author|Points|Category|Solves|
 |---|---|---|
-|AUTHOR|999|CATEGORY|
+|AUTHOR|999|CATEGORY|999|
 
 ### Description
 

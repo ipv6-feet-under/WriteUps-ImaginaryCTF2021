@@ -2,9 +2,9 @@
 
 # Prechallenge: XOR
 
-|Author|Points|Category|
+|Author|Points|Category|Solves|
 |---|---|---|
-|Eth007|50|Prechallenges|
+|Eth007|50|Prechallenges|999|
 
 ### Description
 

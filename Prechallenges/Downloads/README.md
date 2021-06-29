@@ -1,34 +1,25 @@
 ![ImaginaryCTF](../../banner.png)
 
-# INPUT_TITLE_HERE
+# Prechallenge: Downloads
 
-|Author|Points|Category|
+|Author|Points|Category|Solves|
 |---|---|---|
-|AUTHOR|999|CATEGORY|
+|Eth007|999|Prechallenges|999|
 
 ### Description
 
 ```
-THIS_IS_THE_CHALLENGES_DESCRIPTION	
+We utilize Discord's download system to store files (for the time being). Test if you can download files with this link: https://2021.imaginaryctf.org/r/6188-the_flag_to_the_challenge.txt	
 ```
 
 ### Attachments
 
 ```
-STRING OR LINK TO FILE
+None
 ```
-SOLUTION_TEXT_BLABLABLABLABLA
-SOLUTION_TEXT_BLABLABLABLABLA
-SOLUTION_TEXT_BLABLABLABLABLA
-SOLUTION_TEXT_BLABLABLABLABLA
-SOLUTION_TEXT_BLABLABLABLABLA
-SOLUTION_TEXT_BLABLABLABLABLA
-
-![IMAGE_FOR_EXAMPLE](GOOD_IMAGE_TITLE.png)
-
-
+Just download the file from the challenges description.
 
 There is our flag:
 ```
-ictf{this_is_a_template_fl4g}
+ictf{it_works!_5b48fa21}
 ```
