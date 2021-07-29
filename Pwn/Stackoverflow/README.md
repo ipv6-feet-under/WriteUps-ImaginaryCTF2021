@@ -26,13 +26,13 @@ Thanks! Now onto the posts!
 ERROR: FEATURE NOT IMPLEMENTED YET
 ```
 The programm asks for a color, answeres a short text and throws an error.
-Let's get a look at the executable to find out what it does. Therefore we can use ghidra to analyze the file.
+Let's get a look at the executable to find out what it does. Therefore we can use ghidra to analyze the file:
 
 ![ghidra.PNG](ghidra.PNG)
 
 Ghidra shows us a `main` function. Here we see that the program compares `local_10` with `0x69637466` ("ictf") while our input gets written into `local_38`. If the comparison  returns true it will execute `/bin/sh`, so we have to trigger that.
 
-`local_38` is 40 bytes big and is stored infront of the `local_10` on the stack. So we just put 11 * "ftci" and it will fill `local_38` until it overflows 1 "ftci" into local_10. It has to be reverted to "ftci" as it has to be stored in little endian.
+`local_38` is 40 bytes big and is stored infront of the `local_10` on the stack. So we just put 11 * "ftci" (= 44 Bytes) and it will fill `local_38` until it overflows 1 "ftci" into local_10. It has to be reverted to "ftci" as it has to be stored in little endian.
 
 Doing this we get the following output:
 ```
