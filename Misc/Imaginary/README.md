@@ -75,7 +75,7 @@ def calc(math):
 	sol = sol.replace(')','')
 	return sol
 ```
-To get rid of the forkbomb we just check if the string starts with those `__` from `"__import__['os']...`. In this case we don't `eval()` the input, but just returning 'sth' as the answere. In the other cases it can only be the math problems as we know the original source code. As the `eval()` understands complex numbers with 'j's instead of 'i's we have to replace them first and get rid of the brackets. No we can calculate the problem with `eval(math)` very easy. To match the input format of the program, we have to change the 'j's back to 'i's and delete those brackets again.
+To get rid of the forkbomb we just check if the string starts with those `__` from `"__import__['os']...`. In this case we don't `eval()` the input, but just returning 'sth' as the answer. In the other cases it can only be the math problems as we know the original source code. As the `eval()` understands complex numbers with 'j's instead of 'i's we have to replace them first and get rid of the brackets. Now we can calculate the problem with `eval(math)` very easily. To match the input format of the program, we have to change the 'j's back to 'i's and delete those brackets again.
 
 The final part is just the interaction and the loop to solve 300 problems with some prints to know it works:
 
