@@ -17,6 +17,8 @@ Cookie streaming service? Naaaaaaah. Password protected Rickroll as a Service? Y
 * [app.py](app.py)
 * http://cookie-stream.chal.imaginaryctf.org/
 
+* [stream_cookiesolver.py](stream_cookiesolver.py)
+
 Visiting the website we get a login page:
 
 ![login.PNG](login.PNG)
@@ -42,7 +44,7 @@ Eth007:supersecure
 just_a_normal_user:password
 firepwny:pwned
 ```
-With all of the accounts above we get:
+With each of the accounts above we get:
 
 ![logged_in.PNG](logged_in.PNG)
 
@@ -64,6 +66,25 @@ def backend():
         return make_response(redirect('/home'))
 ```
 
+The cookie is generated with AES mode CTR. The Initialization vector (IV) is called `nonce` here. This nonce and the key for the AES is once generated at the beginning:
+```py
+key = urandom(16)
+cnonce = urandom(8)
+```
+AES in CTR mode is vulnerable when the nonce is used multiple times.
+```py
+@app.route('/home', methods=['GET'])
+def home():
+    nonce = unhexlify(request.cookies.get('auth')[:16])
+    cipher = AES.new(key, AES.MODE_CTR, nonce=nonce)
+    username = unpad(cipher.decrypt(unhexlify(request.cookies.get('auth')[16:])), 16).decode()
+    if username == 'admin':
+        flag = open('flag.txt').read()
+        return render_template('fun.html', username=username, message=f'Your flag: {flag}')
+    else:
+        return render_template('fun.html', username=username, message='Only the admin user can view the flag.')
+```
+Here we can see that the cookie is disassembled with the same nonce that was used to craft it. Having the hex transformation `hexlify()` and `hexlify()` it gives us the chance to craft our own cookie with the help of a small script 
 
 
 There is our flag:
