@@ -66,12 +66,14 @@ def backend():
         return make_response(redirect('/home'))
 ```
 
-The cookie is generated with AES mode CTR. The Initialization vector (IV) is called `nonce` here. This nonce and the key for the AES is once generated at the beginning:
+The cookie is generated with AES mode CTR. The Initialization vector (IV) is called `nonce` here. The first 16 Bytes of the cookie contains the nonce. This nonce and the key for the AES is once generated at the beginning:
 ```py
 key = urandom(16)
 cnonce = urandom(8)
 ```
-AES in CTR mode is vulnerable when the nonce is used multiple times.
+AES in CTR mode is vulnerable when the nonce is used multiple times with known plaintexts. In our case we know the plaintexts of the usernames as they are used to craft the other part of the cookie. So we can use: `plaintext1 XOR plaintext2 = Ciphertext1 XOR X`
+
+
 ```py
 @app.route('/home', methods=['GET'])
 def home():
@@ -84,7 +86,43 @@ def home():
     else:
         return render_template('fun.html', username=username, message='Only the admin user can view the flag.')
 ```
-Here we can see that the cookie is disassembled with the same nonce that was used to craft it. Having the hex transformation `hexlify()` and `hexlify()` it gives us the chance to craft our own cookie with the help of a small script 
+Here we can see that the cookie is disassembled with the same nonce that was used to craft it. Having the hex transformation `hexlify()` and `hexlify()` it gives us the chance to craft our own cookie with the help of a small [script](stream_cookiesolver.py).
+
+First we set up what we know:
+* one generated cookie of e.g. user Eth007 (`orig_auth`)
+  * the `nonce` as the first 16 Bytes of that cookie
+  * the `ciphertext` as the other part of that cookie
+  * first plaintext `plaintext1` as the username of the logged in user `Eth007`
+  * second plaintext `plaintext2` as the username `admin` that we want to achieve and we know that it has to be in his cookie.
+
+```py
+orig_auth = '895462eacc651da4dd302f43d42eaccaffab31053df1cb60'
+
+nonce = '895462eacc651da4' #First 16Bytes
+ciphertext1 = "dd302f43d42eaccaffab31053df1cb60" #Last 32Bytes
+plaintext1 = "Eth007"
+plaintext2 = "admin"
+```
+
+Now we have to XOR the two plaintexts and the ciphertext with each other with the help of a little XOR function. Additionally we need to note the transformations with `pad()` and `[un]hexlify()` and finally craft our own cookie:
+```py
+def byte_xor(ba1, ba2):
+    return bytes([_a ^ _b for _a, _b in zip(ba1, ba2)])
+
+plaintext1 = (pad(plaintext1.encode(),16))
+plaintext2 = (pad(plaintext2.encode(),16))
+
+p1XORp2 = byte_xor(plaintext1, plaintext2)
+
+ciphertext1 = unhexlify(ciphertext1)
+
+c1XOR_p1XORp2_ = byte_xor(ciphertext1, p1XORp2)
+
+print(" New Auth-Cookie: " + nonce + hexlify(c1XOR_p1XORp2_).decode())
+```
+
+Now just change the `auth` cookie and get the flag:
+
 
 
 There is our flag:
