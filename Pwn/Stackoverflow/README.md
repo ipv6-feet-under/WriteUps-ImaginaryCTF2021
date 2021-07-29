@@ -14,9 +14,21 @@ Welcome to Stack Overflow! Get answers to all your programming questions right h
 
 ### Attachments
 
-* [E795-stackoverflow](E795-stackoverflow)
+* [stackoverflow](stackoverflow)
 * nc chal.imaginaryctf.org 42001
 
+We are given a NetCat-Connection and an executable. Let's first get a look at nc:
+```sh
+└─$ nc chal.imaginaryctf.org 42001
+Welcome to StackOverflow! Before you start ~~copypasting code~~ asking good questions, we would like you to answer a question. What's your favorite color?
+green
+Thanks! Now onto the posts!
+ERROR: FEATURE NOT IMPLEMENTED YET
+```
+The programm asks for a color, answeres a short text and throws an error.
+Let's get a look at the executable to find out what it does. Therefor we can use ghidra to analyze the file.
+
+![ghidra.PNG](ghidra.PNG)
 
 
 
