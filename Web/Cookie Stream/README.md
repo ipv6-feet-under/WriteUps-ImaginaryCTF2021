@@ -66,7 +66,7 @@ def backend():
         return make_response(redirect('/home'))
 ```
 
-The cookie is generated with AES mode CTR. The Initialization vector (IV) is called `nonce` here. The first 16 Bytes of the cookie contains the nonce. This nonce and the key for the AES is once generated at the beginning:
+The cookie is generated with AES mode CTR. The Initialization vector (IV) is called `nonce` here. The first 16 Bytes of the cookie contains the nonce. This nonce and the key for the AES is generated once at the beginning:
 ```py
 key = urandom(16)
 cnonce = urandom(8)
@@ -86,7 +86,7 @@ def home():
     else:
         return render_template('fun.html', username=username, message='Only the admin user can view the flag.')
 ```
-Here we can see that the cookie is disassembled with the same nonce that was used to craft it. Having the hex transformation `hexlify()` and `hexlify()` it gives us the chance to craft our own cookie with the help of a small [script](stream_cookiesolver.py).
+For sure, the cookie is disassembled with the same nonce that was used to craft it. With the known plaintext of the usernames it gives us the chance to craft our own cookie with the help of a small [script](stream_cookiesolver.py) even if we don't know the key.
 
 First we set up what we know:
 * one generated cookie of e.g. user Eth007 (`orig_auth`)
@@ -123,7 +123,7 @@ print(" New Auth-Cookie: " + nonce + hexlify(c1XOR_p1XORp2_).decode())
 
 Now just change the `auth` cookie and get the flag:
 
-
+![admin.PNG](admin.PNG)
 
 There is our flag:
 ```
