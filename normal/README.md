@@ -14,17 +14,10 @@ Norse senor snorts spores, abhors non-nors, adores s'mores, and snores.
 
 ### Attachments
 
-```
+* [Makefile](Makefile)
+* [normal.v](normal.v)
+* [normal_solver.py](normal_solver.py)
 
-```
-SOLUTION_TEXT_BLABLABLABLABLA
-SOLUTION_TEXT_BLABLABLABLABLA
-SOLUTION_TEXT_BLABLABLABLABLA
-SOLUTION_TEXT_BLABLABLABLABLA
-SOLUTION_TEXT_BLABLABLABLABLA
-SOLUTION_TEXT_BLABLABLABLABLA
-
-![IMAGE_FOR_EXAMPLE](GOOD_IMAGE_TITLE.png)
 
 
 
