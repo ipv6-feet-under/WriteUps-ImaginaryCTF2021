@@ -66,7 +66,7 @@ By symplifying and minimizing each funtcion we can set up the following table:
 |`nor n8 [255:0] (w8, C, w6);`|`w8 = not ((C) or (not ((A XOR B) or (C))))`|
 |`nor n9 [255:0] (out, w7, w8);`|`not ((not ((A XOR B) or (not ((A XOR B) or (C))))) or (not ((C) or (not ((A XOR B) or (C))))))`|
 
-The last line can be minized to: `out = not (A XOR B XOR C)`.
+The last expression can be minized to: `out = not (A XOR B XOR C)`.
 
 So finally we get the expression we need: `wrong = not (flag XOR c1 XOR c2)`.
 Now we can set up a [normal_solver.py](python script) to get our flag:
