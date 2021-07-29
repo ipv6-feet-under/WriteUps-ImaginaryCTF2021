@@ -26,7 +26,7 @@ Thanks! Now onto the posts!
 ERROR: FEATURE NOT IMPLEMENTED YET
 ```
 The programm asks for a color, answeres a short text and throws an error.
-Let's get a look at the executable to find out what it does. Therefore we can use ghidra to analyze the file:
+Let's get a look at the executable to find out what it does. Therefore we can use [Ghidra](https://ghidra-sre.org/) to analyze the file:
 
 ![ghidra.PNG](ghidra.PNG)
 
